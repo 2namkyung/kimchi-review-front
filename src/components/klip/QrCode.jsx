@@ -24,7 +24,7 @@ const QrCode = ({ qrcode, reqKey }) => {
             window.location.reload();
           }
         });
-    }, 3000);
+    }, 1000);
 
     return () => {
       clearInterval(reqId);
@@ -33,6 +33,7 @@ const QrCode = ({ qrcode, reqKey }) => {
 
   return (
     <>
+      {reqKey}
       {qrcode !== "" && (
         <>
           <StyledQRCode value={qrcode} />
