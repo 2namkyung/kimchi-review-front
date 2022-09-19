@@ -60,7 +60,7 @@ const KlipModal = ({ onClose }) => {
     return () => {
       setLoading(false);
     };
-  }, []);
+  }, [loading]);
 
   return (
     <Container>

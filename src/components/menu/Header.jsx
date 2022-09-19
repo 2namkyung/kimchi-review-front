@@ -3,8 +3,8 @@ import Breakpoint, {
   BreakpointProvider,
   setDefaultBreakpoints,
 } from "react-socks";
+
 import { Link } from "@reach/router";
-import KlipButton from "../klip/KlipButton";
 import Klip from "../klip/Klip";
 
 setDefaultBreakpoints([{ xs: 0 }, { l: 1199 }, { xl: 1200 }]);
@@ -13,8 +13,6 @@ const NavLink = (props) => (
   <Link
     {...props}
     getProps={({ isCurrent }) => {
-      // the object returned here is passed to the
-      // anchor element's props
       return {
         className: isCurrent ? "active" : "non-active",
       };
@@ -82,7 +80,6 @@ const Header = function () {
           </BreakpointProvider>
 
           <div className="mainside">
-            {/* <KlipButton /> */}
             <Klip />
           </div>
         </div>

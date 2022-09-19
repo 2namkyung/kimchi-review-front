@@ -2,11 +2,11 @@ import styled from "styled-components";
 import QRCode from "qrcode.react";
 import { useEffect } from "react";
 import axios from "axios";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import walletState from "../../recoil/wallet";
 
 const QrCode = ({ qrcode, reqKey }) => {
-  const [wallet, setWallet] = useRecoilState(walletState);
+  const setWallet = useSetRecoilState(walletState);
 
   useEffect(() => {
     let reqId;
