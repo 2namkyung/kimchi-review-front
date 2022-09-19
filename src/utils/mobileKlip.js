@@ -36,7 +36,6 @@ export async function klipQrCode() {
 export async function klipMobileAuth() {
   const bapp = {
     bappName: "KIMCHI REVIEW",
-    successLink: "http://localhost:3000",
   };
 
   const response = await prepare.auth(bapp);

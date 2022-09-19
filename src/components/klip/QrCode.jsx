@@ -33,7 +33,6 @@ const QrCode = ({ qrcode, reqKey }) => {
 
   return (
     <>
-      {reqKey}
       {qrcode !== "" && (
         <>
           <StyledQRCode value={qrcode} />
