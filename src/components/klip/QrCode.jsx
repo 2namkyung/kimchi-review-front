@@ -18,9 +18,9 @@ const QrCode = ({ qrcode, reqKey }) => {
         )
         .then((res) => {
           if (res.data.result) {
-            clearInterval(reqId);
             const address = res.data.result.klaytn_address;
             setWallet({ walletType: "KLIP", address, isLogin: true });
+            clearInterval(reqId);
             window.location.reload();
           }
         });
@@ -33,8 +33,12 @@ const QrCode = ({ qrcode, reqKey }) => {
 
   return (
     <>
-      <StyledQRCode value={qrcode} />
-      <StyledDesc>카메라 스캔을 통해 Klip 인증해주세요.</StyledDesc>
+      {qrcode !== "" && (
+        <>
+          <StyledQRCode value={qrcode} />
+          <StyledDesc>카메라 스캔을 통해 Klip 인증해주세요.</StyledDesc>
+        </>
+      )}
     </>
   );
 };
