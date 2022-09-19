@@ -49,7 +49,6 @@ const KlipModal = ({ onClose }) => {
         const requestKey = await klipMobileAuth();
         setQrcode("");
         setReqKey(requestKey);
-        alert("reqKey", requestKey);
       }
     }
 
