@@ -32,11 +32,7 @@ const Collection = function () {
     <div>
       <GlobalStyles />
 
-      <section
-        id="profile_banner"
-        className="jumbotron breadcumb no-bg"
-        style={{ backgroundImage: `url(${"./img/background/9.jpg"})` }}
-      >
+      <section id="profile_banner" className="jumbotron breadcumb no-bg">
         <div className="mainbreadcumb"></div>
       </section>
 
