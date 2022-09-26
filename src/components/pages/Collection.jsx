@@ -1,4 +1,7 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 import { createGlobalStyle } from "styled-components";
 import NftCard from "../NftCard";
@@ -28,6 +31,20 @@ const Collection = function () {
     document.getElementById("Mainbtn").classList.remove("active");
   };
 
+  const [nftList, setNftList] = useState([]);
+  const [myNftList, setMyNftList] = useState([]);
+
+  useEffect(() => {
+    async function getNftList() {
+      const result = await axios.get(
+        `https://api-kimchi.dev.knx.exchange/v1/review/nft?page=1&size=100`
+      );
+      setNftList(result.data.response);
+    }
+
+    getNftList();
+  }, []);
+
   return (
     <div>
       <GlobalStyles />
@@ -51,7 +68,7 @@ const Collection = function () {
                     KIMCHI REVIEW NFT
                     <div className="clearfix"></div>
                     <span id="wallet" className="profile_wallet">
-                      CONTRACT ADDRESS
+                      0xbA8dfA461404d90fB680512bbf7a7e3E66E184DF
                     </span>
                   </h4>
                 </div>
@@ -78,12 +95,12 @@ const Collection = function () {
         </div>
         {openMenu && (
           <div id="zero1" className="onStep fadeIn">
-            <NftCard />
+            <NftCard nfts={nftList} />
           </div>
         )}
         {openMenu1 && (
           <div id="zero2" className="onStep fadeIn">
-            <NftCard />
+            <NftCard nfts={myNftList} />
           </div>
         )}
       </section>

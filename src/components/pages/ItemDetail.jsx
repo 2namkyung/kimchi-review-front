@@ -47,14 +47,13 @@ const Colection = function () {
         <div className="row mt-md-5 pt-md-4">
           <div className="col-md-6 text-center">
             <img
-              src="./img/items/big-1.jpg"
+              src="/img/items/big-1.jpg"
               className="img-fluid img-rounded mb-sm-30"
               alt=""
             />
           </div>
           <div className="col-md-6">
             <div className="item_info">
-              Auctions ends in
               <h2>Pinky Ocean</h2>
               <div className="item_info_counts">
                 <div className="item_info_type">
@@ -73,7 +72,7 @@ const Colection = function () {
                   <span>
                     <img
                       className="lazy"
-                      src="./img/author/author-1.jpg"
+                      src="/img/author/author-1.jpg"
                       alt=""
                     />
                     <i className="fa fa-check"></i>
@@ -84,32 +83,34 @@ const Colection = function () {
                 </div>
               </div>
               <div className="spacer-40"></div>
-              <div className="spacer-40"></div>
-              <Table striped bordered responsive>
-                <tbody>
-                  <tr>
-                    <StyledTitle>블록체인</StyledTitle>
-                    <StyledDesc>Klaytn</StyledDesc>
-                  </tr>
-                  <tr>
-                    <StyledTitle>트랜잭션</StyledTitle>
-                    <StyledDesc>0xwklehtpwiehtpwehtpiwet</StyledDesc>
-                  </tr>
-                  <tr>
-                    <StyledTitle>컨트랙트</StyledTitle>
-                    <StyledDesc>0xwklehtpwiehtpwehtpiwet</StyledDesc>
-                  </tr>
-                  <tr>
-                    <StyledTitle>토큰 아이디</StyledTitle>
-                    <StyledDesc>1</StyledDesc>
-                  </tr>
-                  <tr>
-                    <StyledTitle>생성 날짜</StyledTitle>
-                    <StyledDesc>20220102</StyledDesc>
-                  </tr>
-                </tbody>
-              </Table>
             </div>
+          </div>
+          <div className="spacer-40"></div>
+          <div>
+            <Table striped bordered responsive>
+              <tbody>
+                <tr>
+                  <StyledTitle>블록체인</StyledTitle>
+                  <StyledDesc>Klaytn</StyledDesc>
+                </tr>
+                <tr>
+                  <StyledTitle>트랜잭션</StyledTitle>
+                  <StyledDesc>0xwklehtpwiehtpwehtpiwet</StyledDesc>
+                </tr>
+                <tr>
+                  <StyledTitle>컨트랙트</StyledTitle>
+                  <StyledDesc>0xwklehtpwiehtpwehtpiwet</StyledDesc>
+                </tr>
+                <tr>
+                  <StyledTitle>토큰 아이디</StyledTitle>
+                  <StyledDesc>1</StyledDesc>
+                </tr>
+                <tr>
+                  <StyledTitle>생성 날짜</StyledTitle>
+                  <StyledDesc>20220102</StyledDesc>
+                </tr>
+              </tbody>
+            </Table>
           </div>
         </div>
       </section>

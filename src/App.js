@@ -27,7 +27,7 @@ const App = () => (
         <ScrollTop>
           <Routes>
             <Route path="/" element={<Collection />} />
-            <Route path="/ItemDetail" element={<ItemDetail />} />
+            <Route path="/nft/:contract/:tokenId" element={<ItemDetail />} />
           </Routes>
         </ScrollTop>
       </div>
