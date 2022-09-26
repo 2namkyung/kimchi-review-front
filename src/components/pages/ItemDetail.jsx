@@ -9,10 +9,6 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const StyledNFTImg = styled.img`
-  height: 100%;
-`;
-
 const StyledLogo = styled.img`
   width: 16px;
   height: 16px;
@@ -50,7 +46,7 @@ const Colection = function () {
       <section className="container">
         <div className="row mt-md-5 pt-md-4">
           <div className="col-md-6 text-center">
-            <StyledNFTImg
+            <img
               src="./img/items/big-1.jpg"
               className="img-fluid img-rounded mb-sm-30"
               alt=""
