@@ -13,7 +13,6 @@ const Outer = styled.div`
 `;
 
 const NftCard = ({ nfts }) => {
-  console.log(nfts);
   return (
     <div className="row">
       {nfts.map((nft, index) => (

@@ -4,21 +4,10 @@ import Breakpoint, {
   setDefaultBreakpoints,
 } from "react-socks";
 
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import Klip from "../klip/Klip";
 
 setDefaultBreakpoints([{ xs: 0 }, { l: 1199 }, { xl: 1200 }]);
-
-const NavLink = (props) => (
-  <Link
-    {...props}
-    getProps={({ isCurrent }) => {
-      return {
-        className: isCurrent ? "active" : "non-active",
-      };
-    }}
-  />
-);
 
 const Header = function () {
   const [showmenu, btn_icon] = useState(false);
@@ -29,7 +18,7 @@ const Header = function () {
         <div className="row w-100-nav">
           <div className="logo px-0">
             <div className="navbar-title navbar-item">
-              <NavLink to="/">
+              <Link to="/">
                 <img
                   src="/img/logo-retro.png"
                   className="img-fluid d-block"
@@ -45,18 +34,18 @@ const Header = function () {
                   className="img-fluid d-none"
                   alt="#"
                 />
-              </NavLink>
+              </Link>
             </div>
           </div>
 
           <div className="search">
-            <input
+            {/* <input
               id="quick_search"
               className="xs-hide"
               name="quick_search"
               placeholder="search item here..."
               type="text"
-            />
+            /> */}
           </div>
 
           <BreakpointProvider>

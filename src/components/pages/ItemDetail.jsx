@@ -1,6 +1,12 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Table } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
+import { convertTimeFormat } from "../../utils/time";
+import { truncate } from "../../utils/web3Util";
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.white {
@@ -39,7 +45,30 @@ const StyledDesc = styled.td`
   }
 `;
 
-const Colection = function () {
+const ItemDetail = () => {
+  const params = useParams();
+  const { contract, tokenId } = params;
+
+  const [data, setData] = useState({});
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function getNftDetail() {
+      try {
+        const result = await axios.get(
+          `https://api-kimchi.dev.knx.exchange/v1/review/nftDetail/${contract}/${tokenId}`
+        );
+
+        setData(result.data.response);
+      } catch (error) {
+        navigate("/");
+      }
+    }
+
+    getNftDetail();
+  }, [contract, tokenId, navigate]);
+
   return (
     <div>
       <GlobalStyles />
@@ -54,7 +83,7 @@ const Colection = function () {
           </div>
           <div className="col-md-6">
             <div className="item_info">
-              <h2>Pinky Ocean</h2>
+              <h2>KIMCHI NFT #{data?.tokenId}</h2>
               <div className="item_info_counts">
                 <div className="item_info_type">
                   <StyledLogo src="/img/klaytn-logo.svg" alt="logo" />
@@ -66,7 +95,7 @@ const Colection = function () {
                 </div>
               </div>
               <p>NFT 설명칸.</p>
-              <h6>Creator</h6>
+              <h6>Owner</h6>
               <div className="item_author">
                 <div className="author_list_pp">
                   <span>
@@ -79,7 +108,9 @@ const Colection = function () {
                   </span>
                 </div>
                 <div className="author_list_info">
-                  <span>0x...stpweihtpiw</span>
+                  <span style={{ fontWeight: 800 }}>
+                    {truncate(data?.owner)}
+                  </span>
                 </div>
               </div>
               <div className="spacer-40"></div>
@@ -95,19 +126,19 @@ const Colection = function () {
                 </tr>
                 <tr>
                   <StyledTitle>트랜잭션</StyledTitle>
-                  <StyledDesc>0xwklehtpwiehtpwehtpiwet</StyledDesc>
+                  <StyledDesc>{data?.txHash}</StyledDesc>
                 </tr>
                 <tr>
                   <StyledTitle>컨트랙트</StyledTitle>
-                  <StyledDesc>0xwklehtpwiehtpwehtpiwet</StyledDesc>
+                  <StyledDesc>{data?.contract}</StyledDesc>
                 </tr>
                 <tr>
                   <StyledTitle>토큰 아이디</StyledTitle>
-                  <StyledDesc>1</StyledDesc>
+                  <StyledDesc>{data?.tokenId}</StyledDesc>
                 </tr>
                 <tr>
                   <StyledTitle>생성 날짜</StyledTitle>
-                  <StyledDesc>20220102</StyledDesc>
+                  <StyledDesc>{convertTimeFormat(data?.created_at)}</StyledDesc>
                 </tr>
               </tbody>
             </Table>
@@ -117,4 +148,4 @@ const Colection = function () {
     </div>
   );
 };
-export default Colection;
+export default ItemDetail;

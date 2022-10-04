@@ -21,13 +21,14 @@ export const ScrollTop = ({ children, location }) => {
 const App = () => (
   <div className="wraper">
     <GlobalStyles />
-    <Header />
+
     <BrowserRouter>
       <div id="routerhang">
         <ScrollTop>
+          <Header />
           <Routes>
-            <Route path="/" element={<Collection />} />
             <Route path="/nft/:contract/:tokenId" element={<ItemDetail />} />
+            <Route path="/" element={<Collection />} />
           </Routes>
         </ScrollTop>
       </div>

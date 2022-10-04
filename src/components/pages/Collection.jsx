@@ -2,8 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRecoilValue } from "recoil";
 
 import { createGlobalStyle } from "styled-components";
+import walletState from "../../recoil/wallet";
 import NftCard from "../NftCard";
 
 const GlobalStyles = createGlobalStyle`
@@ -34,16 +36,40 @@ const Collection = function () {
   const [nftList, setNftList] = useState([]);
   const [myNftList, setMyNftList] = useState([]);
 
+  const { address } = useRecoilValue(walletState);
+
   useEffect(() => {
     async function getNftList() {
-      const result = await axios.get(
-        `https://api-kimchi.dev.knx.exchange/v1/review/nft?page=1&size=100`
-      );
-      setNftList(result.data.response);
+      try {
+        const result = await axios.get(
+          `https://api-kimchi.dev.knx.exchange/v1/review/nft?page=1&size=100`
+        );
+        setNftList(result.data.response);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     getNftList();
   }, []);
+
+  useEffect(() => {
+    async function getMyNftList() {
+      try {
+        const result = await axios.get(
+          `https://api-kimchi.dev.knx.exchange/v1/review/myNft?address=${address.toLowerCase()}`
+        );
+
+        setMyNftList(result.data.response);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (address !== "") {
+      getMyNftList();
+    }
+  }, [address]);
 
   return (
     <div>
