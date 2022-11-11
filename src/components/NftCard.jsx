@@ -17,8 +17,8 @@ const NftCard = ({ nfts }) => {
   return (
     <div className="row">
       {nfts.map((nft, index) => (
-        <Link to={`/nft/${nft.contract}/${nft.tokenId}`} key={index}>
-          <div className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <Link to={`/nft/${nft.contract}/${nft.tokenId}`} key={index}>
             <div className="nft__item">
               <div className="nft__item_wrap" style={{ height: `245px` }}>
                 <Outer>
@@ -39,8 +39,8 @@ const NftCard = ({ nfts }) => {
                 <div className="spacer-10" />
               </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );
