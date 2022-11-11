@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 
 import { createGlobalStyle } from "styled-components";
@@ -85,7 +84,7 @@ const Collection = function () {
             <div className="d_profile">
               <div className="profile_avatar">
                 <div className="d_profile_img">
-                  <img src="./img/author/author-1.jpg" alt="" />
+                  <img src="/img/character.png" alt="" />
                   <i className="fa fa-check"></i>
                 </div>
 

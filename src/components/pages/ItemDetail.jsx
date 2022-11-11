@@ -1,6 +1,5 @@
 import axios from "axios";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
@@ -75,7 +74,7 @@ const ItemDetail = () => {
         <div className="row mt-md-5 pt-md-4">
           <div className="col-md-6 text-center">
             <img
-              src="/img/items/big-1.jpg"
+              src="/img/reward.png"
               className="img-fluid img-rounded mb-sm-30"
               alt=""
             />
@@ -93,16 +92,12 @@ const ItemDetail = () => {
                   NFT
                 </div>
               </div>
-              <p>NFT 설명칸.</p>
+              <p>김치 제조이력 리뷰에 대한 리워드 NFT입니다.</p>
               <h6>Owner</h6>
               <div className="item_author">
                 <div className="author_list_pp">
                   <span>
-                    <img
-                      className="lazy"
-                      src="/img/author/author-1.jpg"
-                      alt=""
-                    />
+                    <img className="lazy" src="/img/character.png" alt="" />
                     <i className="fa fa-check"></i>
                   </span>
                 </div>

@@ -13,6 +13,7 @@ const Outer = styled.div`
 `;
 
 const NftCard = ({ nfts }) => {
+  console.log(nfts);
   return (
     <div className="row">
       {nfts.map((nft, index) => (
@@ -23,7 +24,7 @@ const NftCard = ({ nfts }) => {
                 <Outer>
                   <span>
                     <img
-                      src="/img/klaytn-logo.svg"
+                      src="/img/reward.png"
                       className="lazy nft__item_preview"
                       alt=""
                     />

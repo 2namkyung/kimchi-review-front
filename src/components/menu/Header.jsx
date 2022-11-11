@@ -20,17 +20,17 @@ const Header = function () {
             <div className="navbar-title navbar-item">
               <Link to="/">
                 <img
-                  src="/img/logo-retro.png"
+                  src="/img/futuresense.svg"
                   className="img-fluid d-block"
                   alt="#"
                 />
                 <img
-                  src="/img/logo-retro.png"
+                  src="/img/futuresense.svg"
                   className="img-fluid d-3"
                   alt="#"
                 />
                 <img
-                  src="/img/logo-retro.png"
+                  src="/img/futuresense.svg"
                   className="img-fluid d-none"
                   alt="#"
                 />
