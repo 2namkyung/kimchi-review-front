@@ -41,7 +41,7 @@ const Collection = function () {
     async function getNftList() {
       try {
         const result = await axios.get(
-          `https://api-kimchi.dev.knx.exchange/v1/review/nft?page=1&size=100`
+          `https://api-kimchi.dev.knx.exchange/v1/review/nft?page=1&size=300`
         );
         setNftList(result.data.response);
       } catch (error) {
